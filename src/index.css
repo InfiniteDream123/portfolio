@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply dark:bg-gray-900 dark:text-gray-200;
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .crt::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    z-index: 100;
+    pointer-events: none;
+  }
+
+  .neon-glow {
+    text-shadow: 0 0 4px #00ff99, 0 0 8px #00ff99;
+  }
+  
+}
+
+input, textarea {
+  caret-color: #00ff99;
+  font-family: 'Fira Code', monospace;
+}
+
