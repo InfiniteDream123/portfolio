@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 export default function Contact() {
-  const [sent, setSent] = useState(false)
+  const [sent, setSent] = useState(false);
 
   return (
     <section
@@ -11,17 +11,17 @@ export default function Contact() {
       className="relative py-20 px-6 bg-black text-white overflow-hidden"
     >
       {/* 🌌 Background Glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 via-green-500/5 to-black blur-2xl opacity-20 z-0 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-blue-500/5 to-black blur-2xl opacity-20 z-0 pointer-events-none" />
 
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         {/* 🖥️ Terminal Style Heading */}
         <motion.h2
-          className="text-3xl md:text-4xl font-mono text-green-400 mb-2"
+          className="text-3xl md:text-4xl font-mono text-blue-400 mb-2"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          &gt; Transmitting Secure Message to Joshua...
+          &gt; Transmitting Secure Message to Danny...
         </motion.h2>
 
         <p className="text-gray-400 mb-10">
@@ -32,8 +32,8 @@ export default function Contact() {
         {!sent ? (
           <form
             onSubmit={(e) => {
-              e.preventDefault()
-              setSent(true)
+              e.preventDefault();
+              setSent(true);
             }}
             className="space-y-6 max-w-xl mx-auto text-left"
           >
@@ -43,7 +43,10 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <label htmlFor="name" className="block text-sm text-green-300 mb-1">
+              <label
+                htmlFor="name"
+                className="block text-sm text-blue-300 mb-1"
+              >
                 Name
               </label>
               <input
@@ -52,7 +55,7 @@ export default function Contact() {
                 id="name"
                 required
                 placeholder="Your name"
-                className="w-full px-4 py-2 border-b-2 border-green-500 bg-transparent text-white placeholder:text-gray-500 focus:outline-none focus:border-green-400 transition"
+                className="w-full px-4 py-2 border-b-2 border-blue-500 bg-transparent text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-400 transition"
               />
             </motion.div>
 
@@ -62,7 +65,10 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <label htmlFor="email" className="block text-sm text-green-300 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm text-blue-300 mb-1"
+              >
                 Email
               </label>
               <input
@@ -71,7 +77,7 @@ export default function Contact() {
                 id="email"
                 required
                 placeholder="your@email.com"
-                className="w-full px-4 py-2 border-b-2 border-green-500 bg-transparent text-white placeholder:text-gray-500 focus:outline-none focus:border-green-400 transition"
+                className="w-full px-4 py-2 border-b-2 border-blue-500 bg-transparent text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-400 transition"
               />
             </motion.div>
 
@@ -81,7 +87,10 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <label htmlFor="message" className="block text-sm text-green-300 mb-1">
+              <label
+                htmlFor="message"
+                className="block text-sm text-blue-300 mb-1"
+              >
                 Message
               </label>
               <textarea
@@ -90,7 +99,7 @@ export default function Contact() {
                 rows="5"
                 required
                 placeholder="Let’s build something epic..."
-                className="w-full px-4 py-2 border-b-2 border-green-500 bg-transparent text-white placeholder:text-gray-500 focus:outline-none focus:border-green-400 transition resize-none"
+                className="w-full px-4 py-2 border-b-2 border-blue-500 bg-transparent text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-400 transition resize-none"
               ></textarea>
             </motion.div>
 
@@ -99,7 +108,7 @@ export default function Contact() {
               type="submit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full mt-4 px-6 py-3 bg-green-500 hover:bg-green-600 text-black font-bold rounded shadow transition-all duration-300"
+              className="w-full mt-4 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-black font-bold rounded shadow transition-all duration-300"
             >
               🚀 Send Transmission
             </motion.button>
@@ -109,14 +118,14 @@ export default function Contact() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="text-green-400 font-mono text-lg mt-10"
+            className="text-blue-400 font-mono text-lg mt-10"
           >
             [ OK ] Message transmitted successfully to Jakarin Core Node ✅
           </motion.div>
         )}
 
         {/* 🔗 Social Icons */}
-        <div className="flex justify-center gap-6 mt-12 text-green-400 text-2xl">
+        <div className="flex justify-center gap-6 mt-12 text-blue-400 text-2xl">
           <a
             href="mailto:jakarin@pm.me"
             className="hover:text-white transition"
@@ -144,5 +153,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
