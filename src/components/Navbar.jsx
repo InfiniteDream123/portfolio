@@ -1,59 +1,62 @@
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
-]
+];
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState('#hero')
-  const [isOpen, setIsOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('#hero');
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const link of navLinks) {
-        const section = document.querySelector(link.href)
+        const section = document.querySelector(link.href);
         if (section) {
-          const offsetTop = section.offsetTop
-          const offsetHeight = section.offsetHeight
+          const offsetTop = section.offsetTop;
+          const offsetHeight = section.offsetHeight;
 
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(link.href)
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(link.href);
           }
         }
       }
-    }
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    handleScroll() // Init
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Init
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollTo = (e, href) => {
-    e.preventDefault()
-    const section = document.querySelector(href)
+    e.preventDefault();
+    const section = document.querySelector(href);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      setIsOpen(false)
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setIsOpen(false);
     }
-  }
+  };
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-70 backdrop-blur-sm shadow-md">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <motion.h1
-          className="text-2xl md:text-3xl font-extrabold text-green-400 tracking-wide"
+          className="text-2xl md:text-3xl font-extrabold text-blue-400 tracking-wide"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          JOSHUA STROMME
+          Serhii Chalyi
         </motion.h1>
 
         {/* Desktop Nav */}
@@ -65,13 +68,13 @@ export default function Navbar() {
               onClick={(e) => scrollTo(e, link.href)}
               className={`group relative text-lg font-semibold transition-all duration-300 ${
                 activeSection === link.href
-                  ? 'text-green-400 neon-glow'
-                  : 'text-gray-200 hover:text-green-400'
+                  ? 'text-blue-400 neon-glow'
+                  : 'text-gray-200 hover:text-blue-400'
               }`}
               whileHover={{ scale: 1.05 }}
             >
               {link.label}
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-green-400 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
             </motion.a>
           ))}
         </nav>
@@ -114,8 +117,8 @@ export default function Navbar() {
               onClick={(e) => scrollTo(e, link.href)}
               className={`block text-xl font-semibold transition ${
                 activeSection === link.href
-                  ? 'text-green-400 neon-glow'
-                  : 'text-gray-200 hover:text-green-400'
+                  ? 'text-blue-400 neon-glow'
+                  : 'text-gray-200 hover:text-blue-400'
               }`}
             >
               {link.label}
@@ -124,5 +127,5 @@ export default function Navbar() {
         </motion.nav>
       )}
     </header>
-  )
+  );
 }
