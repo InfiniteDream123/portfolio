@@ -1,12 +1,47 @@
-# React + Vite
+# Real-time Markdown Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, elegant markdown editor with real-time preview, PDF export, and copy functionality.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Real-time markdown preview
+- Syntax highlighting for code blocks
+- Export to PDF
+- Copy rendered content to clipboard
+- Responsive design
+- Clean and modern UI
 
-## Expanding the ESLint configuration
+## Deployment
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project can be easily deployed to Netlify:
+
+1. Push this repository to GitHub
+2. Go to [Netlify](https://www.netlify.com/)
+3. Click "New site from Git"
+4. Choose your repository
+5. Deploy!
+
+## Local Development
+
+To run this project locally:
+
+1. Clone the repository
+2. Open `index.html` in your browser
+
+That's it! No build process or dependencies to install.
+
+## Usage
+
+1. Write markdown in the left pane
+2. See the rendered preview in real-time on the right
+3. Use the "Copy" button to copy the rendered content
+4. Use the "Export PDF" button to download a PDF version
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- [marked.js](https://marked.js.org/) - Markdown parser
+- [highlight.js](https://highlightjs.org/) - Syntax highlighting
+- [html2pdf.js](https://github.com/eKoopmans/html2pdf.js) - PDF generation 
