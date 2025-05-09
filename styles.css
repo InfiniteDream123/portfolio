@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-color: #f8fafc;
+    --text-color: #1e293b;
+    --border-color: #e2e8f0;
+    --preview-bg: #ffffff;
+    --code-bg: #f1f5f9;
+    --blockquote-bg: #f8fafc;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    max-width: 1800px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.editor-pane, .preview-pane {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.editor-pane {
+    border-right: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+}
+
+#markdown-input {
+    width: 100%;
+    height: calc(100vh - 4rem);
+    padding: 1.5rem;
+    border: none;
+    resize: none;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: transparent;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+#markdown-input:focus {
+    outline: none;
+}
+
+.preview-pane {
+    background-color: var(--preview-bg);
+    padding-top: 1rem;
+}
+
+.preview-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    position: sticky;
+    top: 0;
+    background-color: var(--preview-bg);
+    z-index: 10;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#preview {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Markdown Preview Styles */
+#preview h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 1.5em 0 0.75em;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+#preview h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 1.5em 0 0.75em;
+    color: var(--text-color);
+}
+
+#preview h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.5em 0 0.75em;
+    color: var(--text-color);
+}
+
+#preview p {
+    margin-bottom: 1.5em;
+}
+
+#preview code {
+    background-color: var(--code-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    color: #e83e8c;
+}
+
+#preview pre {
+    background-color: var(--code-bg);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5em 0;
+    border: 1px solid var(--border-color);
+}
+
+#preview pre code {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: 0.9em;
+}
+
+#preview blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding: 1rem 1.5rem;
+    background-color: var(--blockquote-bg);
+    border-radius: 0.25rem;
+    margin: 1.5em 0;
+    color: #475569;
+}
+
+#preview ul, #preview ol {
+    margin: 1.5em 0;
+    padding-left: 2em;
+}
+
+#preview li {
+    margin-bottom: 0.5em;
+}
+
+#preview table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5em 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px var(--border-color);
+}
+
+#preview th, #preview td {
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+#preview th {
+    background-color: var(--code-bg);
+    font-weight: 600;
+}
+
+#preview tr:nth-child(even) {
+    background-color: var(--blockquote-bg);
+}
+
+#preview a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+#preview a:hover {
+    border-bottom-color: var(--primary-color);
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+} 
