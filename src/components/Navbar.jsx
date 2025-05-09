@@ -49,14 +49,21 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-70 backdrop-blur-sm shadow-md">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <motion.h1
-          className="text-2xl md:text-3xl font-extrabold text-blue-400 tracking-wide"
+        <motion.div
+          className="flex items-center gap-3"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Serhii Chalyi
-        </motion.h1>
+          <img 
+            src="/anime-logo.svg" 
+            alt="Anime Logo" 
+            className="w-10 h-10"
+          />
+          <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-[#ff2e63] to-[#08f7fe] bg-clip-text text-transparent tracking-wide">
+            Vladyslav Lomako
+          </h1>
+        </motion.div>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-8">
@@ -67,13 +74,13 @@ export default function Navbar() {
               onClick={(e) => scrollTo(e, link.href)}
               className={`group relative text-lg font-semibold transition-all duration-300 ${
                 activeSection === link.href
-                  ? 'text-blue-400 neon-glow'
-                  : 'text-gray-200 hover:text-blue-400'
+                  ? 'text-[#08f7fe] neon-glow'
+                  : 'text-gray-200 hover:text-[#08f7fe]'
               }`}
               whileHover={{ scale: 1.05 }}
             >
               {link.label}
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#08f7fe] transition-all duration-300 group-hover:w-full"></span>
             </motion.a>
           ))}
         </nav>
@@ -116,8 +123,8 @@ export default function Navbar() {
               onClick={(e) => scrollTo(e, link.href)}
               className={`block text-xl font-semibold transition ${
                 activeSection === link.href
-                  ? 'text-blue-400 neon-glow'
-                  : 'text-gray-200 hover:text-blue-400'
+                  ? 'text-[#08f7fe] neon-glow'
+                  : 'text-gray-200 hover:text-[#08f7fe]'
               }`}
             >
               {link.label}

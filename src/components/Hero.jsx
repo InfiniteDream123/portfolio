@@ -35,7 +35,7 @@ export default function Hero() {
             visible: { opacity: 1, y: 0 },
           }}
         >
-          Hi, I'm Serhii Chalyi
+          Hi, I'm Vladyslav Lomako
         </motion.h1>
 
         <motion.p
